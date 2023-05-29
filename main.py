@@ -11,8 +11,8 @@ def parse_args():
     
     parser.add_argument("--src_images_dir", type=str, required=True)
     parser.add_argument("--detections_dir", type=str, required=True)
-    parser.add_argument("--infer_conf", type=str, required=True, default="configs/infernece_config.yaml")
-    parser.add_argument("--cls_map_path", type=str, required=True, default="configs/classes_to_detect.yaml")
+    parser.add_argument("--infer_conf", type=str, default="configs/inference_config.yaml")
+    parser.add_argument("--cls_map_path", type=str, default="configs/classes_to_detect.yaml")
     parser.add_argument("--ann_dir", type=str, default="labels")
     parser.add_argument("--train_split_ratio", type=float, default=0.8)
     
@@ -57,21 +57,14 @@ def main(
 
 
 if __name__ == "__main__":
-    # args = parse_args()
-    # main(
-    #     args.src_images_dir,
-    #     args.detections_dir,
-    #     args.infer_conf,
-    #     args.cls_map_path,
-    #     args.ann_dir,
-    #     args.train_split_ratio,
-    # )
-    
+    args = parse_args()
     main(
-        src_images_dir="/Users/alexuvarovskiy/Downloads/result",
-        detections_dir="/Users/alexuvarovskiy/Documents/predictions",
-        inference_config_path="configs/inference_config.yaml",
-        classes_mapping_path="configs/classes_to_detect.yaml",
-        annotations_dir="labels",
-        train_split_ratio=0.8,
+        args.src_images_dir,
+        args.detections_dir,
+        args.infer_conf,
+        args.cls_map_path,
+        args.ann_dir,
+        args.train_split_ratio,
     )
+    
+
