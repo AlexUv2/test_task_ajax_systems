@@ -1,0 +1,4 @@
+conf_th: 0.5
+iou_th: 0.7
+model_type: yolov8n
+device_id: 0
